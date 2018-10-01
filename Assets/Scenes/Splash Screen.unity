@@ -586,3 +586,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToMenu: 2
+  menuScene: 1
+  gameScene: 2

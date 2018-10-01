@@ -6,21 +6,35 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour {
 
     public float timeToMenu;
-    
+    public int menuScene;
+    public int gameScene;
 
     private void Update()
     {
-        timeToMenu -= Time.deltaTime;
 
-        if (timeToMenu < 0f)
-        {timeToMenu -= Time.deltaTime;
-        
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            timeToMenu -= Time.deltaTime;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0 && timeToMenu < 0f)
+        {
+            SceneManager.LoadScene(menuScene);
         }
     }
 
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(gameScene);
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(menuScene);
+    }
+
+    public void QuitGame ()
+    {
+        Application.Quit();
     }
 }
